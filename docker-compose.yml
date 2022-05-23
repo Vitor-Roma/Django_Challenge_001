@@ -1,0 +1,28 @@
+version: '3.0'
+services:
+  application:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./:/usr/src/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgresdb
+
+  postgresdb:
+    image: postgres
+    container_name: postgresdb
+    hostname: postgresdb
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: 'root'
+      POSTGRES_PASSWORD: '123'
+      POSTGRES_DB: 'Challenge'
+    volumes:
+      - postgresql_data:/var/lib/postgresql/data
+
+volumes:
+  postgresql_data:
+
