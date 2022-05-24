@@ -18,7 +18,7 @@ INSTALLED_APPS = [
 
 # API End-Points
 
-- You can now open the API in the Postman
+- You can now open the API in the Postman and import Collections and Environment from Postman directory
 
 <img src='https://user-images.githubusercontent.com/105290851/169929406-6b3b47a2-7297-4404-abc9-151bb112af41.png'>
 
