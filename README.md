@@ -24,7 +24,7 @@ INSTALLED_APPS = [
 
 
     0.0.0.0:8000
-    0.0.0.0:8000/login
+    0.0.0.0:8000/api/login
     0.0.0.0:8000/api/sign-up
     0.0.0.0:8000/api/admin/authors
     0.0.0.0:8000/api/admin/articles
