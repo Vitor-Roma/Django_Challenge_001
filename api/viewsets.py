@@ -36,7 +36,7 @@ class AuthorViewSet(viewsets.ModelViewSet):
 
 class ArticleViewSet(viewsets.ModelViewSet):
     serializer_class = ArticleSerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    permission_classes = [permissions.IsAuthenticated]
     queryset = models.Article.objects.all()
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['category', 'title', 'summary', 'body']
@@ -48,9 +48,15 @@ class ArticleViewSet(viewsets.ModelViewSet):
             return LoggedOutArticleSerializer
 
 class LoggedOutViewSet(viewsets.ModelViewSet):
-    serializer_class = LoggedOutArticleSerializer
+    serializer_class = ArticleSerializer
     queryset = models.Article.objects.all()
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     filter_backends = [DjangoFilterBackend]
     filterset_fileds = ['category', 'title', 'summary']
+
+    def get_serializer_class(self):
+        if self.request.user.is_authenticated:
+            return LoggedArticleSerializer
+        else:
+            return LoggedOutArticleSerializer
 
