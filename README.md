@@ -13,7 +13,7 @@
 
 ## First steps
 
-- Rename your '.env_sample' file to '.env'
+- Rename your '.env_sample' file to '.env' to connectc to database
 - open your terminal and type:
 ```
 make all
