@@ -8,22 +8,21 @@
 - Docker
 - Docker Compose
 - Makefile
+- Postman
 ```
 
-## To start the project, open your terminal and type:
+## First steps
 
+- Rename your '.env_sample' file to '.env'
+- open your terminal and type:
 ```
 make all
-```
-
-## To upload your data, type:
-
-```
+make run
 make build
 ```
 
 
-## To realize all tests tpe:
+## To realize all tests type:
 
 ```
 make test
