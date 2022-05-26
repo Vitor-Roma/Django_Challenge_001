@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   application:
-    build: .
+    image: challenge_application
     container_name: application
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
