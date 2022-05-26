@@ -23,12 +23,18 @@ make build
 ```
 
 
+## To realize all tests tpe:
+
+```
+make test
+```
+
+
 # Database fields
 
 ## Articles
 
-    ```json
-    {
+    
       "id": "39df53da-542a-3518-9c19-3568e21644fe",
       "author": {
         "id": "2d460e48-a4fa-370b-a2d0-79f2f601988c",
@@ -39,16 +45,14 @@ make build
       "title": "Article title",
       "summary": "This is a summary of the article",
       "firstParagraph": "<p>This is the first paragraph of this article</p>"
-    }
-    ```
+      "body": "<div><p>Second paragraph</p><p>Third paragraph</p></div>" 
 
 ## Authors
 
     {
     "id": "2d460e48-a4fa-370b-a2d0-79f2f601988c",
     "name": "Author Name",
-    "picture": "https://picture.url"
-  }
+    "picture": "https://picture.url"}
 
 
 # API End-Points
