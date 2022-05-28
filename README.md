@@ -1,7 +1,10 @@
-### My first Django project
+# Django-Challenge-001
 
+## Introduction
 
-# Installation
+This is my first django project with API, i learned a lot of new tools and how i can use them to future projects while also improving the knowledge i already had to begin with.
+
+## Installation
 
 
 ```python
@@ -13,10 +16,9 @@
 
 ## First steps
 
-- Rename your '.env_sample' file to '.env' to connectc to database
+- Rename your '.env_sample' file to '.env' to connect to database
 - open your terminal and type:
 ```
-make all
 make run
 make build
 ```
@@ -29,7 +31,7 @@ make test
 ```
 
 
-# Database fields
+# Database
 
 ## Articles
 
@@ -69,6 +71,6 @@ make test
     0.0.0.0:8000/api/articles (list all articles) **can read without token, but not with full access
     
     
-# Refference
+# Source
 
 [Jungle Devs - Django Challenge #001] (https://github.com/JungleDevs/django-challenge-001)
