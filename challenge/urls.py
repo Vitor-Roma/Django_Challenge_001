@@ -6,7 +6,6 @@ from api.viewsets import Register
 from django.conf.urls.static import static
 from django.conf import settings
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
-from api.serializers import UserRegisterSerializer
 
 route = routers.DefaultRouter()
 
@@ -17,9 +16,9 @@ route.register(r'api/articles', viewsets.LoggedOutViewSet, basename='Articles')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('login/', TokenObtainPairView.as_view()),
-    path('login/refresh/', TokenRefreshView.as_view()),
-    path('api/sign-up/', Register.as_view()),
+    path('api/login/', TokenObtainPairView.as_view(), name='login'),
+    path('login/refresh/', TokenRefreshView.as_view(), name='refresh'),
+    path('api/sign-up/', Register.as_view(), name='sign-up'),
     path('', include(route.urls)),
 
 

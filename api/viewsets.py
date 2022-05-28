@@ -31,7 +31,8 @@ class AuthorViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
     serializer_class = AuthorSerializer
     queryset = models.Author.objects.all()
-    # filterset_fields = ['name']
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['name']
 
 
 class ArticleViewSet(viewsets.ModelViewSet):
