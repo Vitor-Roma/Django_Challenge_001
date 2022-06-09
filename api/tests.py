@@ -61,7 +61,7 @@ class TestAll(APITestCase):
         self.assertEqual(response.status_code, 201)
         self.assertEqual(response.data['name'], data['name'])
 
-    def test_article_create_invalid(self):
+    def test_article_create_invalid_body(self):
         data = {'author_id': Author.objects.first().id,
                 'category': 'a categoria que voce quiser',
                 'title': 'o titulo que voce quiser',
@@ -72,7 +72,7 @@ class TestAll(APITestCase):
         response = self.client.post(self.admin_article_url, data=data)
         self.assertEqual(response.status_code, 400)
 
-    def test_article_create_valid(self):
+    def test_article_create_valid_body(self):
         data = {'author_id': Author.objects.first().id,
                 'category': 'a categoria que voce quiser',
                 'title': 'o titulo que voce quiser',
@@ -86,8 +86,10 @@ class TestAll(APITestCase):
         self.assertEqual(response.data['summary'], data['summary'])
 
     def test_author_edit(self):
+        response2 = self.client.get(self.author_detail)
+        self.assertEqual(response2.data['name'], 'qualquer nome')
         data = {'name': 'qualquer outro nome'}
-        response = self.client.put(self.author_detail, data)
+        response = self.client.patch(self.author_detail, data)
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.data['name'], 'qualquer outro nome')
 
@@ -101,7 +103,7 @@ class TestAll(APITestCase):
                 }
         response = self.client.put(self.article_detail, data)
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.data['summary'], 'o novo resumo')
+        self.assertEqual(response.data['summary'], data['summary'])
 
     def test_author_delete(self):
         response = self.client.delete(self.author_detail)

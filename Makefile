@@ -2,6 +2,7 @@ all:
 	docker-compose up
 	docker exec application pip3 install --upgrade pip
 	docker exec application pip3 install -r requirements.txt
+	docker exec application python3 manage.py makemigrations
 	docker exec application python3 manage.py migrate
 
 build:
@@ -16,6 +17,9 @@ test:
 run:
 	docker-compose up
 
+scrap:
+	docker exec application python3 manage.py BSoup
+
 down:
 	docker-compose down
 
@@ -26,3 +30,4 @@ coverage:
 
 attach:
 	docker attach application
+
