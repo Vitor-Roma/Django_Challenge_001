@@ -10,7 +10,6 @@ services:
       - "8000:8000"
     depends_on:
       - postgresdb
-#      - selenium
 
   postgresdb:
     image: postgres:14.3-alpine
@@ -24,13 +23,6 @@ services:
       POSTGRES_DB: 'Challenge'
     volumes:
       - postgresql_data:/var/lib/postgresql/data
-
-#  selenium:
-#    image: selenium/standalone-chrome:4.2.1-20220608
-#    ports:
-#    - '4441:4444'
-#    restart: always
-
 
 volumes:
   postgresql_data:

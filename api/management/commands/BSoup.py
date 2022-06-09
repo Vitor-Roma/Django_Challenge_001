@@ -8,6 +8,7 @@ from api.models import Author, Article
 from django.core.management.base import BaseCommand, CommandError
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.options import Options
 
 
 
@@ -18,7 +19,18 @@ class Command(BaseCommand):
     def handle(self, *args, **kwargs):
         page = 'https://www.imdb.com/chart/top/?ref_=nv_mv_250'
         links = self.get_links(page)
+        driver = webdriver.Chrome(options=self.set_chrome_options())
         self.web_scrap(links)
+
+    def set_chrome_options(self) -> None:
+        chrome_options = Options()
+        chrome_options.add_argument("--headless")
+        chrome_options.add_argument("--no-sandbox")
+        chrome_options.add_argument("--disable-dev-shm-usage")
+        chrome_prefs = {}
+        chrome_options.experimental_options["prefs"] = chrome_prefs
+        chrome_prefs["profile.default_content_settings"] = {"images": 2}
+        return chrome_options
 
     def get_links(self, page):
         url = requests.get(page).text
@@ -34,9 +46,7 @@ class Command(BaseCommand):
     def web_scrap(self, links):
         articles = []
         for web in links[:10]:
-            # service = Service(ChromeDriverManager().install())
-            # driver = webdriver.Chrome(service=service)
-            driver = webdriver.Remote('http://172.31.0.3:4444/wd/hub', desired_capabilities=DesiredCapabilities.CHROME)
+            driver = webdriver.Chrome(options=self.set_chrome_options())
             page = web['link']
             url = requests.get(page).text
             soup = BeautifulSoup(url, 'lxml')
