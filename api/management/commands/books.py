@@ -34,6 +34,7 @@ class Command(BaseCommand):
                 link_list.append(book_list)
         return link_list
 
+
 # def web_scrap(self, link_list):
 #     driver = webdriver.Chrome(options=self.set_chrome_options())
 #     for link in link_list:
