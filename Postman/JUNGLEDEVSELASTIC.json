@@ -1,0 +1,1209 @@
+{
+	"info": {
+		"_postman_id": "d4d61480-1fdb-4732-9572-977132ee87e7",
+		"name": "Jungle Devs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21027316"
+	},
+	"item": [
+		{
+			"name": "Articles",
+			"item": [
+				{
+					"name": "All Articles for ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{server}}/api/admin/articles/${id}/",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"articles",
+								"${id}",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All articles - Admin",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "category",
+								"value": "teste",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{server}}/api/admin/articles/",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"articles",
+								""
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "Lifestyle",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All articles",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{server}}/api/articles/",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"articles",
+								""
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "Books2",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Articles",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "author_id",
+									"value": "94bf6b49-2292-4d43-ac1c-a4112e9b582f",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "category",
+									"value": "Filme",
+									"type": "text"
+								},
+								{
+									"key": "title",
+									"value": "Cidade de Deus",
+									"type": "text"
+								},
+								{
+									"key": "summary",
+									"value": "Jungle devs Challenge",
+									"type": "text"
+								},
+								{
+									"key": "firstParagraph",
+									"value": "Sinopse",
+									"type": "text"
+								},
+								{
+									"key": "body",
+									"value": "Buscapé é um jovem pobre, negro e sensível, que cresce em um universo de muita violência. Ele vive na Cidade de Deus, favela carioca conhecida por ser um dos locais mais violentos do Rio. Amedrontado com a possibilidade de se tornar um bandido, Buscapé é salvo de seu destino por causa de seu talento como fotógrafo, o qual permite que siga carreira na profissão. É por meio de seu olhar atrás da câmera que ele analisa o dia a dia da favela em que vive, onde a violência aparenta ser infinita.",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/api/admin/articles/",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"articles",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Articles",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "fa29bd45-1501-4a8f-8019-437380042515",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "author_id",
+									"value": "94bf6b49-2292-4d43-ac1c-a4112e9b582f",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "Lifestyle",
+									"type": "text"
+								},
+								{
+									"key": "title",
+									"value": "Ahsuahsuah",
+									"type": "text"
+								},
+								{
+									"key": "summary",
+									"value": "TESTE",
+									"type": "text"
+								},
+								{
+									"key": "firstParagraph",
+									"value": "ok",
+									"type": "text"
+								},
+								{
+									"key": "body",
+									"value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere sagittis gravida. Proin sodales urna ipsum, dapibus faucibus diam elementum at. Aliquam faucibus sapien at eleifend malesuada. Pellentesque non sem tristique, varius nulla at, varius nunc. Integer congue vestibulum mi, sed cursus dolor suscipit id. Curabitur condimentum imperdiet tellus a malesuada. Vivamus imperdiet erat ante, sit amet bibendum lectus porttitor a. Suspendisse et iaculis sapien. Suspendisse pellentesque molestie sagittis. Donec ut sollicitudin elit.",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/api/admin/articles/${id}/",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"articles",
+								"${id}",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Articles",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "fa29bd45-1501-4a8f-8019-437380042515",
+									"type": "text"
+								},
+								{
+									"key": "author",
+									"value": "[object Object]",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "Lifestyle",
+									"type": "text"
+								},
+								{
+									"key": "title",
+									"value": "Ahsuahsuah",
+									"type": "text"
+								},
+								{
+									"key": "summary",
+									"value": "TESTE",
+									"type": "text"
+								},
+								{
+									"key": "firstParagraph",
+									"value": "ok",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/api/admin/articles/${id}/",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"articles",
+								"${id}",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Articles",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/api/admin/articles/${id}/",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"articles",
+								"${id}",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Articles Elasticsearch",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{server}}/api/admin/articles/?search=Fernando",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"articles",
+								""
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "Fernando"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Author",
+			"item": [
+				{
+					"name": "All Author for ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/api/admin/authors/${id}/",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"authors",
+								"${id}",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All Author",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/api/admin/authors/",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"authors",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Author",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Lucas",
+									"type": "text"
+								},
+								{
+									"key": "picture",
+									"type": "file",
+									"src": "/home/pc/Downloads/3c5a026d-09c2-4e84-8bba-ade7aa985daa.jpeg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/api/admin/authors/",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"authors",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Author",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "picture",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/api/admin/authors/${id}/",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"authors",
+								"${id}",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Author",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Fernando",
+									"type": "text"
+								},
+								{
+									"key": "picture",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/api/admin/authors/${id}/",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"authors",
+								"${id}",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Author",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{server}}/api/admin/authors/${id}/",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"authors",
+								"${id}",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Author Elasticsearch",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{server}}/author/search/?search=Fernando",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"author",
+								"search",
+								""
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "Fernando"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Login User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Has Token\"] = jsonData.access.length > 0 ;",
+									"postman.setEnvironmentVariable(\"token\", jsonData.access);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "saimon",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "firstuser",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/api/login/",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"login",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "teste",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "strongpassword123",
+									"type": "text"
+								},
+								{
+									"key": "password2",
+									"value": "strongpassword123",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "strongpassword@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "first_name",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "last_name",
+									"value": "case",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/api/sign-up/",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"sign-up",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Elasticsearch",
+			"item": [
+				{
+					"name": "Author",
+					"item": [
+						{
+							"name": "Author List ES",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{es}}/author/_search",
+									"host": [
+										"{{es}}"
+									],
+									"path": [
+										"author",
+										"_search"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Filter Author ES",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{es}}/author/_search?q=name:Fernando",
+									"host": [
+										"{{es}}"
+									],
+									"path": [
+										"author",
+										"_search"
+									],
+									"query": [
+										{
+											"key": "q",
+											"value": "name:Fernando"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Author ES",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"Ricardo\",\n    \"picture\":\"\"\n\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{es}}/author/_doc/",
+									"host": [
+										"{{es}}"
+									],
+									"path": [
+										"author",
+										"_doc",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Edit Author ES",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"Fernando\",\n    \"picture\":\"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{es}}/author/_doc/94bf6b49-2292-4d43-ac1c-a4112e9b582f",
+									"host": [
+										"{{es}}"
+									],
+									"path": [
+										"author",
+										"_doc",
+										"94bf6b49-2292-4d43-ac1c-a4112e9b582f"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Author ES",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"Fernando\",\n    \"picture\":\"\"\n\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{es}}/author/_doc/94bf6b49-2292-4d43-ac1c-a4112e9b582f",
+									"host": [
+										"{{es}}"
+									],
+									"path": [
+										"author",
+										"_doc",
+										"94bf6b49-2292-4d43-ac1c-a4112e9b582f"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Articles",
+					"item": [
+						{
+							"name": "Article List ES",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{es}}/article/_search",
+									"host": [
+										"{{es}}"
+									],
+									"path": [
+										"article",
+										"_search"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Filter Article ES",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{es}}/article/_search?q=body:Lorem&q=category:Lifestyle",
+									"host": [
+										"{{es}}"
+									],
+									"path": [
+										"article",
+										"_search"
+									],
+									"query": [
+										{
+											"key": "q",
+											"value": "body:Lorem"
+										},
+										{
+											"key": "q",
+											"value": "category:Lifestyle"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Article ES",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"category\": \"\",\n    \"title\":\"\",\n    \"summary\":\"\",\n    \"firstParagraph\":\"\",\n    \"body\":\"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{es}}/author/_doc/",
+									"host": [
+										"{{es}}"
+									],
+									"path": [
+										"author",
+										"_doc",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Edit Article ES",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"category\": \"Python\",\n    \"title\": \"Api\",\n    \"summary\": \"Jungle devs Challenge UPDATED\",\n    \"firstParagraph\": \"Test\",\n    \"body\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere sagittis gravida. Proin sodales urna ipsum, dapibus faucibus diam elementum at. Aliquam faucibus sapien at eleifend malesuada. Pellentesque non sem tristique, varius nulla at, varius nunc. Integer congue vestibulum mi, sed cursus dolor suscipit id. Curabitur condimentum imperdiet tellus a malesuada. Vivamus imperdiet erat ante, sit amet bibendum lectus porttitor a. Suspendisse et iaculis sapien. Suspendisse pellentesque molestie sagittis. Donec ut sollicitudin elit.\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{es}}/author/_doc/b94499e1-417b-4415-aa58-5aa3308734bd",
+									"host": [
+										"{{es}}"
+									],
+									"path": [
+										"author",
+										"_doc",
+										"b94499e1-417b-4415-aa58-5aa3308734bd"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Article ES",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"Fernando\",\n    \"picture\":\"\"\n\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{es}}/author/_doc/94bf6b49-2292-4d43-ac1c-a4112e9b582f",
+									"host": [
+										"{{es}}"
+									],
+									"path": [
+										"author",
+										"_doc",
+										"94bf6b49-2292-4d43-ac1c-a4112e9b582f"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Index",
+					"item": [
+						{
+							"name": "Indices",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{es}}/_cat/indices?v&pretty",
+									"host": [
+										"{{es}}"
+									],
+									"path": [
+										"_cat",
+										"indices"
+									],
+									"query": [
+										{
+											"key": "v",
+											"value": null
+										},
+										{
+											"key": "pretty",
+											"value": null
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Index",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{es}}/test_index",
+									"host": [
+										"{{es}}"
+									],
+									"path": [
+										"test_index"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Indice",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{es}}/test_index",
+									"host": [
+										"{{es}}"
+									],
+									"path": [
+										"test_index"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
