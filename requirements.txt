@@ -12,3 +12,7 @@ requests==2.27.1
 lxml==4.9.0
 ipdb==0.13.9
 webdriver-manager==3.7.0
+celery==5.2.7
+redis==4.3.3
+flower==1.0.0
+django-celery-beat==2.3.0

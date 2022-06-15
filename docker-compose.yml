@@ -1,8 +1,9 @@
 version: '3.8'
 services:
   application:
-    image: challenge_application
+#    image: challenge_application
     container_name: application
+    build: .
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - ./:/usr/src/app
@@ -23,6 +24,58 @@ services:
       POSTGRES_DB: 'Challenge'
     volumes:
       - postgresql_data:/var/lib/postgresql/data
+
+#Rabbitmq
+  rabbitmq:
+    container_name: rabbitmq
+    image: rabbitmq:latest
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+    ports:
+      - "5671:5672"
+
+  celery:
+    container_name: celery
+    command: celery -A challenge worker -l INFO
+    volumes:
+      - .:/usr/src/app
+    environment:
+      - CELERY_BROKER=amqp://guest@rabbitmq//
+      - CELERY_BACKEND=redis://redis:6379/0
+    depends_on:
+      - redis
+
+#Redis/backend
+  redis:
+    container_name: redis
+    image: 'redis:alpine'
+
+#Tasks admin
+  flower:
+    container_name: flower
+    command: celery $api $management $commands flower
+    ports:
+      - "5556:5555"
+    environment:
+      - CELERY_BROKER=amqp://guest@rabbitmq//
+      - CELERY_BACKEND=redis://redis:6379/0
+    depends_on:
+      - rabbitmq
+      - celery
+
+#  celery_beat:
+#    container_name: celery_beat
+#    build: .
+#    command: celery -A challenge beat -l INFO
+#    environment:
+#      - CELERY_BROKER=amqp://guest@rabbitmq//
+#      - CELERY_BACKEND=redis://redis:6379/0
+#    volumes:
+#      - .:/usr/src/app
+#    depends_on:
+#      - rabbitmq
+#      - celery
 
 volumes:
   postgresql_data:

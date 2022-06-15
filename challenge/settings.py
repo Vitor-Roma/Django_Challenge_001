@@ -145,3 +145,17 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CELERY_BROKER_URL = os.environ.get("CELERY_BROKER", "amqp://guest@rabbitmq//")
+CELERY_RESULT_BACKEND = os.environ.get("CELERY_BACKEND", "redis://redis:6379/0")
+
+# CELERY_BEAT_SCHEDULE = {
+#     "scrap-books": {
+#         "task": "scrap-books",
+#         "schedule": 5.0,
+#     },
+#     "scrap-movies": {
+#         "task": "scrap-movies",
+#         "schedule": 10.0,
+#     },
+# }
