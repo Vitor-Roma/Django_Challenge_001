@@ -33,3 +33,6 @@ coverage:
 
 attach:
 	docker attach application
+
+search:
+	docker exec -it application python3 manage.py search_index --rebuild

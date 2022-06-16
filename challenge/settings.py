@@ -23,6 +23,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'api',
     'django_filters',
+    'django_elasticsearch_dsl',
+    'django_elasticsearch_dsl_drf',
 ]
 
 REST_FRAMEWORK = {
@@ -148,6 +150,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CELERY_BROKER_URL = os.environ.get("CELERY_BROKER", "amqp://guest@rabbitmq//")
 CELERY_RESULT_BACKEND = os.environ.get("CELERY_BACKEND", "redis://redis:6379/0")
+
+ELASTICSEARCH_DSL = {
+    'default': {
+        'hosts': 'elasticsearch',
+        'size': 1000
+    }
+}
 
 # CELERY_BEAT_SCHEDULE = {
 #     "scrap-books": {
